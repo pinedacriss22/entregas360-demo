@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas360 | Market</title>
+    <link rel="stylesheet" href="../styles.css">
+<script src="/entregas360-demo/demo-api.js"></script>
+</head>
+
+<body><div style="text-align:center;background:#fff1df;padding:8px;color:#784000">Versión demostrativa · Usa únicamente datos ficticios</div>
+
+    <header>
+        <div class="logo">Entregas<span>360</span></div>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="market.html">Market</a>
+            <a href="express.html">Express</a>
+            <a href="business.html">Business</a>
+            <a href="rastreo.html">Mis pedidos</a>
+            <a href="login.html">Iniciar sesi&oacute;n</a>
+            <a href="registro.html" class="btn">Registrarse</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <p class="etiqueta">ENTREGAS360 MARKET</p>
+
+                <h1>Lo que necesitas,<br>a tu alcance.</h1>
+
+                <p>
+                    Explora restaurantes, supermercados,
+                    farmacias y tus comercios favoritos.
+                </p>
+
+                <div class="acciones">
+                    <a href="#catalogo" class="btn">
+                        Explorar comercios
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="servicios" id="catalogo">
+
+            <h2>&iquest;Qu&eacute; necesitas hoy?</h2>
+
+            <input
+                type="search"
+                id="buscador"
+                placeholder="Buscar productos o comercios"
+            >
+
+            <h2>Categor&iacute;as</h2>
+
+            <div class="tarjetas" id="categorias">
+                <p>Cargando categor&iacute;as...</p>
+            </div>
+
+            <h2>Comercios disponibles</h2>
+
+            <div class="tarjetas" id="comercios">
+                <p>Cargando comercios...</p>
+            </div>
+
+            <h2>Productos disponibles</h2><a class="btn" href="pedidos.html">Ver carrito</a>
+
+            <div class="tarjetas" id="productos">
+                <p>Cargando productos...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Entregas360 | San Pedro Sula, Honduras</p>
+        <p>&copy; 2026 Entregas360. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+<script src="/entregas360-demo/alertas.js?v=2"></script>
+<script src="/entregas360-demo/sesion.js?v=2"></script>
+<script src="/entregas360-demo/direcciones.js?v=3"></script>
+
+</body>
+</html>

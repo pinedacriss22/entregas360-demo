@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesi&oacute;n | Entregas360</title>
+    <link rel="stylesheet" href="../styles.css">
+<script src="/entregas360-demo/demo-api.js"></script>
+</head>
+
+<body><div style="text-align:center;background:#fff1df;padding:8px;color:#784000">Versión demostrativa · Usa únicamente datos ficticios</div>
+
+    <header>
+        <a href="../index.html" class="logo">
+            Entregas<span>360</span>
+        </a>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="market.html">Market</a>
+            <a href="express.html">Express</a>
+            <a href="business.html">Business</a>
+            <a href="registro.html">Crear cuenta</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="servicios">
+
+            <form id="formulario-login"
+                  style="max-width:480px; margin:40px auto;">
+
+                <div class="tarjeta">
+
+                    <h2 style="text-align:center;">
+                        Bienvenido a Entregas360
+                    </h2>
+
+                    <p style="text-align:center; margin-bottom:25px;">
+                        Inicia sesi&oacute;n para continuar
+                    </p>
+
+                    <label for="correo">
+                        Correo electr&oacute;nico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        placeholder="correo@ejemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="password">
+                        Contrase&ntilde;a
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Ingresa tu contrase&ntilde;a"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="btn"
+                        id="btn-login"
+                        style="width:100%; margin-top:20px;">
+                        Iniciar sesi&oacute;n
+                    </button>
+
+                    <p style="text-align:center; margin-top:20px;">
+                        &iquest;No tienes una cuenta?
+                        <a href="registro.html">
+                            Reg&iacute;strate aqu&iacute;
+                        </a>
+                    </p>
+
+                </div>
+
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Entregas360. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../alertas.js"></script>
+
+    <script>
+
+        const formulario = document.getElementById('formulario-login');
+        const boton = document.getElementById('btn-login');
+
+        formulario.addEventListener('submit', async (evento) => {
+
+            evento.preventDefault();
+
+            const correo = document.getElementById('correo').value.trim();
+            const password = document.getElementById('password').value;
+
+            boton.disabled = true;
+            boton.textContent = 'Iniciando...';
+
+            try {
+
+                const respuesta = await fetch('/api/login', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        correo,
+                        password
+                    })
+                });
+
+                const datos = await respuesta.json();
+
+                if (!respuesta.ok) {
+                    throw new Error(
+                        datos.error || 'No se pudo iniciar sesion'
+                    );
+                }
+
+                formulario.reset();
+
+                mostrarAlerta({
+                    tipo: 'exito',
+                    titulo: '\u00a1Bienvenido, ' + datos.usuario.nombre + '!',
+                    mensaje: 'Has iniciado sesi\u00f3n correctamente en Entregas360.',
+                    boton: 'Continuar',
+                    redireccion: '../index.html'
+                });
+
+            } catch (error) {
+
+                mostrarAlerta({
+                    tipo: 'error',
+                    titulo: 'No se pudo iniciar sesi\u00f3n',
+                    mensaje: error.message,
+                    boton: 'Intentar nuevamente'
+                });
+
+            } finally {
+
+                boton.disabled = false;
+                boton.textContent = 'Iniciar sesi\u00f3n';
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
