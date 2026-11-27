@@ -3,34 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entregas360</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff7ed;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        h1 {
-            color: #ff6600;
-            font-size: 48px;
-        }
-        button {
-            background: #ff6600;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Entregas360 | Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+<script src="/entregas360-demo/demo-api.js"></script>
 </head>
-<body>
-    <h1>Entregas360</h1>
-    <h2>Tu entrega, nuestro compromiso.</h2>
-    <p>Market | Express | Business</p>
-    <button onclick="alert('¡Entregas360 funciona correctamente!')">
-        Realizar pedido
-    </button>
+
+<body><div style="text-align:center;background:#fff1df;padding:8px;color:#784000">Versión demostrativa · Usa únicamente datos ficticios</div>
+
+    <header>
+        <div class="logo">Entregas<span>360</span></div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="pages/market.html">Market</a>
+            <a href="pages/express.html">Express</a>
+            <a href="pages/business.html">Business</a>
+            <a href="pages/rastreo.html">Mis pedidos</a>
+            <a href="pages/login.html">Iniciar sesi&oacute;n</a>
+            <a href="pages/registro.html" class="btn">
+                Registrarse
+            </a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <p class="etiqueta">
+                    TU SOLUCI&Oacute;N LOG&Iacute;STICA
+                </p>
+
+                <h1>
+                    Todo lo que necesitas,<br>
+                    hasta donde est&eacute;s.
+                </h1>
+
+                <p>
+                    Compra, env&iacute;a y recibe con Entregas360.
+                    Una plataforma, infinitas posibilidades.
+                </p>
+
+                <div class="acciones">
+                    <a href="pages/market.html" class="btn">
+                        Comprar ahora
+                    </a>
+
+                    <a href="pages/express.html"
+                       class="btn-secundario">
+                        Enviar un paquete
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="servicios">
+
+            <h2>Elige lo que necesitas</h2>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <h3>Entregas360 Market</h3>
+
+                    <p>
+                        Compra en restaurantes, supermercados,
+                        farmacias y comercios locales.
+                    </p>
+
+                    <a href="pages/market.html" class="btn">
+                        Explorar Market
+                    </a>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Entregas360 Express</h3>
+
+                    <p>
+                        Env&iacute;a documentos, regalos y paquetes
+                        de manera r&aacute;pida y segura.
+                    </p>
+
+                    <a href="pages/express.html" class="btn">
+                        Explorar Express
+                    </a>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Entregas360 Business</h3>
+
+                    <p>
+                        Gestiona las entregas de tu empresa
+                        o emprendimiento desde un solo lugar.
+                    </p>
+
+                    <a href="pages/business.html" class="btn">
+                        Explorar Business
+                    </a>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="servicios">
+
+            <h2>&iquest;Por qu&eacute; elegir Entregas360?</h2>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <h3>Rapidez</h3>
+                    <p>Entregas eficientes dentro de tu ciudad.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Seguridad</h3>
+                    <p>Seguimiento de tus pedidos y paquetes.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Comodidad</h3>
+                    <p>Todos tus servicios en una plataforma.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Entregas360 | San Pedro Sula, Honduras</p>
+        <p>Plataforma de demostraci&oacute;n universitaria.</p>
+        <p>&copy; 2026 Entregas360. Todos los derechos reservados.</p>
+     </footer>
+
+    <script src="/entregas360-demo/alertas.js?v=2"></script>
+    <script src="/entregas360-demo/sesion.js?v=2"></script>
+
 </body>
 </html>

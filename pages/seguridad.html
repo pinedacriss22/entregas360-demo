@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad | Entregas360</title>
+
+    <link rel="stylesheet" href="/entregas360-demo/styles.css">
+
+    <style>
+
+        .seguridad-contenedor {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .seguridad-cabecera {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .seguridad-icono {
+            width: 65px;
+            height: 65px;
+            background: #e8f5ed;
+            color: #198754;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .campo-password {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .campo-password input {
+            width: 100%;
+            padding-right: 65px;
+            box-sizing: border-box;
+        }
+
+        .mostrar-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .requisitos {
+            background: #f5f8f5;
+            border: 1px solid #dce5df;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .requisitos ul {
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+
+        .requisitos li {
+            color: #64748b;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .aviso-seguridad {
+            background: #fff4e5;
+            border-radius: 10px;
+            padding: 15px;
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-actualizar {
+            width: 100%;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+    </style>
+
+<script src="/entregas360-demo/demo-api.js"></script>
+</head>
+
+<body><div style="text-align:center;background:#fff1df;padding:8px;color:#784000">Versión demostrativa · Usa únicamente datos ficticios</div>
+
+    <header>
+
+        <a href="/entregas360-demo/index.html" class="logo">
+            Entregas<span>360</span>
+        </a>
+
+        <nav>
+            <a href="/entregas360-demo/index.html">Inicio</a>
+            <a href="/entregas360-demo/pages/market.html">Market</a>
+            <a href="/entregas360-demo/pages/express.html">Express</a>
+            <a href="/entregas360-demo/pages/business.html">Business</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="servicios seguridad-contenedor">
+
+            <a href="/entregas360-demo/pages/perfil.html"
+               style="color:#198754;">
+                &larr; Volver a mi perfil
+            </a>
+
+            <h2 style="margin-top:25px;">
+                Seguridad de la cuenta
+            </h2>
+
+            <p>
+                Protege tu cuenta y administra tu contrase&ntilde;a.
+            </p>
+
+            <p id="cargando-seguridad">
+                Verificando sesi&oacute;n...
+            </p>
+
+            <div class="tarjeta"
+                 id="contenido-seguridad"
+                 style="margin-top:25px;"
+                 hidden>
+
+                <div class="seguridad-cabecera">
+
+                    <div class="seguridad-icono">
+
+                        <svg width="35" height="35"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/>
+
+                            <path d="m9 12 2 2 4-4"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <h3>Cambiar contrase&ntilde;a</h3>
+
+                        <p>
+                            Actualiza tus credenciales de acceso.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <form id="formulario-seguridad" novalidate>
+
+                    <label for="password-actual">
+                        Contrase&ntilde;a actual
+                    </label>
+
+                    <div class="campo-password">
+
+                        <input type="password"
+                               id="password-actual"
+                               autocomplete="current-password"
+                               placeholder="Ingresa tu clave actual"
+                               required>
+
+                        <button type="button"
+                                class="mostrar-password"
+                                data-campo="password-actual">
+                            Ver
+                        </button>
+
+                    </div>
+
+                    <label for="password-nueva">
+                        Nueva contrase&ntilde;a
+                    </label>
+
+                    <div class="campo-password">
+
+                        <input type="password"
+                               id="password-nueva"
+                               autocomplete="new-password"
+                               placeholder="Ingresa tu nueva clave"
+                               required>
+
+                        <button type="button"
+                                class="mostrar-password"
+                                data-campo="password-nueva">
+                            Ver
+                        </button>
+
+                    </div>
+
+                    <label for="password-confirmar">
+                        Confirmar nueva contrase&ntilde;a
+                    </label>
+
+                    <div class="campo-password">
+
+                        <input type="password"
+                               id="password-confirmar"
+                               autocomplete="new-password"
+                               placeholder="Repite tu nueva clave"
+                               required>
+
+                        <button type="button"
+                                class="mostrar-password"
+                                data-campo="password-confirmar">
+                            Ver
+                        </button>
+
+                    </div>
+
+                    <div class="requisitos">
+
+                        <strong>Requisitos de seguridad</strong>
+
+                        <ul>
+                            <li id="requisito-longitud">
+                                M&iacute;nimo 8 caracteres
+                            </li>
+
+                            <li id="requisito-mayuscula">
+                                Una letra may&uacute;scula
+                            </li>
+
+                            <li id="requisito-minuscula">
+                                Una letra min&uacute;scula
+                            </li>
+
+                            <li id="requisito-numero">
+                                Un n&uacute;mero
+                            </li>
+
+                            <li id="requisito-especial">
+                                Un car&aacute;cter especial
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="aviso-seguridad">
+
+                        <strong>Aviso de seguridad:</strong>
+
+                        Al cambiar tu contrase&ntilde;a, se cerrar&aacute;n
+                        las dem&aacute;s sesiones activas de tu cuenta.
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-actualizar"
+                            id="btn-actualizar-password"
+                            disabled>
+
+                        Actualizar contrase&ntilde;a
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Entregas360.</p>
+    </footer>
+
+    <script src="/entregas360-demo/alertas.js?v=2"></script>
+    <script src="/entregas360-demo/sesion.js?v=2"></script>
+
+    <script>
+
+        async function cargarSeguridad() {
+
+            try {
+
+                const respuesta = await fetch('/api/sesion', {
+                    credentials: 'same-origin',
+                    cache: 'no-store'
+                });
+
+                if (respuesta.status === 401) {
+
+                    mostrarAlerta({
+                        tipo: 'advertencia',
+                        titulo: 'Inicia sesi\u00f3n',
+                        mensaje: 'Debes iniciar sesi\u00f3n para acceder a esta secci\u00f3n.',
+                        boton: 'Iniciar sesi\u00f3n',
+                        redireccion: '/entregas360-demo/pages/login.html'
+                    });
+
+                    return;
+
+                }
+
+                if (!respuesta.ok) {
+                    throw new Error('No se pudo verificar la sesion');
+                }
+
+                const datos = await respuesta.json();
+
+                if (!datos.autenticado) {
+                    throw new Error('Sesion no valida');
+                }
+
+                document.getElementById(
+                    'contenido-seguridad'
+                ).hidden = false;
+
+            } catch (error) {
+
+                mostrarAlerta({
+                    tipo: 'error',
+                    titulo: 'Error de seguridad',
+                    mensaje: error.message,
+                    boton: 'Aceptar'
+                });
+
+            } finally {
+
+                document.getElementById(
+                    'cargando-seguridad'
+                ).hidden = true;
+
+            }
+
+        }
+
+        const formularioSeguridad = document.getElementById(
+    'formulario-seguridad'
+);
+
+const botonActualizar = document.getElementById(
+    'btn-actualizar-password'
+);
+
+botonActualizar.disabled = false;
+
+formularioSeguridad.addEventListener('submit', async evento => {
+
+    evento.preventDefault();
+
+    const passwordActual = document.getElementById(
+        'password-actual'
+    ).value;
+
+    const passwordNueva = document.getElementById(
+        'password-nueva'
+    ).value;
+
+    const passwordConfirmar = document.getElementById(
+        'password-confirmar'
+    ).value;
+
+    if (!passwordActual || !passwordNueva || !passwordConfirmar) {
+
+        mostrarAlerta({
+            tipo: 'advertencia',
+            titulo: 'Campos incompletos',
+            mensaje: 'Completa todos los campos obligatorios.',
+            boton: 'Corregir'
+        });
+
+        return;
+
+    }
+
+    if (!validarRequisitosPassword()) {
+
+        mostrarAlerta({
+            tipo: 'advertencia',
+            titulo: 'Contrase\u00f1a no v\u00e1lida',
+            mensaje: 'Cumple todos los requisitos de seguridad y no superes los 72 bytes.',
+            boton: 'Corregir'
+        });
+
+        return;
+
+    }
+
+    if (passwordNueva !== passwordConfirmar) {
+
+        mostrarAlerta({
+            tipo: 'advertencia',
+            titulo: 'Las contrase\u00f1as no coinciden',
+            mensaje: 'Verifica la confirmaci\u00f3n de tu nueva contrase\u00f1a.',
+            boton: 'Corregir'
+        });
+
+        return;
+
+    }
+
+    if (passwordActual === passwordNueva) {
+
+        mostrarAlerta({
+            tipo: 'advertencia',
+            titulo: 'Contrase\u00f1a repetida',
+            mensaje: 'La nueva contrase\u00f1a debe ser diferente a la actual.',
+            boton: 'Corregir'
+        });
+
+        return;
+
+    }
+
+    botonActualizar.disabled = true;
+
+    botonActualizar.textContent = 'Actualizando...';
+
+    try {
+
+        const respuesta = await fetch('/api/seguridad/password', {
+
+            method: 'PUT',
+
+            credentials: 'same-origin',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                passwordActual,
+                passwordNueva
+            })
+
+        });
+
+        if (respuesta.status === 401) {
+
+            mostrarAlerta({
+                tipo: 'advertencia',
+                titulo: 'Sesi\u00f3n expirada',
+                mensaje: 'Debes iniciar sesi\u00f3n nuevamente.',
+                boton: 'Iniciar sesi\u00f3n',
+                redireccion: '/entregas360-demo/pages/login.html'
+            });
+
+            return;
+
+        }
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                datos.error ||
+                'No se pudo actualizar la clave'
+            );
+
+        }
+
+        formularioSeguridad.reset();
+
+        document.querySelectorAll('.mostrar-password')
+            .forEach(boton => {
+
+                document.getElementById(
+                    boton.dataset.campo
+                ).type = 'password';
+
+                boton.textContent = 'Ver';
+
+            });
+
+        validarRequisitosPassword();
+
+        mostrarAlerta({
+            tipo: 'exito',
+            titulo: 'Contrase\u00f1a actualizada',
+            mensaje: 'Tu contrase\u00f1a se ha actualizado correctamente. Las dem\u00e1s sesiones han sido cerradas.',
+            boton: 'Aceptar',
+            redireccion: '/entregas360-demo/pages/perfil.html'
+        });
+
+    } catch (error) {
+
+        mostrarAlerta({
+            tipo: 'error',
+            titulo: 'No se pudo actualizar la contrase\u00f1a',
+            mensaje: error.message,
+            boton: 'Intentar nuevamente'
+        });
+
+    } finally {
+
+        botonActualizar.disabled = false;
+
+        botonActualizar.textContent =
+            'Actualizar contrase\u00f1a';
+
+    }
+
+});
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            cargarSeguridad
+        );
+
+        document.querySelectorAll('.mostrar-password')
+    .forEach(boton => {
+
+        boton.addEventListener('click', () => {
+
+            const campo = document.getElementById(
+                boton.dataset.campo
+            );
+
+            const mostrar = campo.type === 'password';
+
+            campo.type = mostrar ? 'text' : 'password';
+
+            boton.textContent = mostrar ? 'Ocultar' : 'Ver';
+
+        });
+
+    });
+
+const passwordNueva = document.getElementById(
+    'password-nueva'
+);
+
+function validarRequisitosPassword() {
+
+    const password = passwordNueva.value;
+
+    const requisitos = {
+
+        'requisito-longitud':
+            password.length >= 8,
+
+        'requisito-mayuscula':
+            /[A-Z]/.test(password),
+
+        'requisito-minuscula':
+            /[a-z]/.test(password),
+
+        'requisito-numero':
+            /[0-9]/.test(password),
+
+        'requisito-especial':
+            /[^A-Za-z0-9\s]/.test(password)
+
+    };
+
+    Object.entries(requisitos).forEach(([id, valido]) => {
+
+        const elemento = document.getElementById(id);
+
+        elemento.style.color = valido
+            ? '#198754'
+            : '#64748b';
+
+        elemento.style.fontWeight = valido
+            ? '600'
+            : '400';
+
+        elemento.style.listStyleType = valido
+            ? '"\u2713  "'
+            : 'disc';
+
+    });
+
+    return Object.values(requisitos).every(Boolean)
+        && new TextEncoder().encode(password).length <= 72;
+
+}
+
+passwordNueva.addEventListener(
+    'input',
+    validarRequisitosPassword
+);
+
+    </script>
+
+</body>
+</html>

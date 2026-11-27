@@ -1,0 +1,552 @@
+/* ENTREGAS360 - ESTILOS GENERALES */
+
+:root {
+    --verde: #198754;
+    --verde-oscuro: #145c3b;
+    --verde-claro: #e8f5ed;
+    --naranja: #f28c28;
+    --blanco: #ffffff;
+    --fondo: #f5f8f5;
+    --texto: #18352a;
+    --gris: #64748b;
+    --borde: #dce5df;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* MENU DE NAVEGACION */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--verde);
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--naranja);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--verde);
+}
+
+/* BOTONES */
+
+.btn,
+.btn-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn {
+    background: var(--verde);
+    color: white;
+    border: 1px solid var(--verde);
+}
+
+.btn:hover {
+    background: var(--verde-oscuro);
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav .btn {
+    color: white;
+}
+
+.btn-secundario {
+    border: 1px solid #ffffff99;
+    color: white;
+    background: transparent;
+}
+
+.btn-secundario:hover {
+    background: #ffffff20;
+}
+
+button:disabled {
+    background: #dce5df;
+    color: #84938a;
+    border-color: #dce5df;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button:disabled:hover {
+    background: #dce5df;
+    color: #84938a;
+    transform: none;
+}
+
+/* BANNER PRINCIPAL */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    margin: 24px 5%;
+    padding: 75px 6%;
+    border-radius: 26px;
+    color: white;
+    background: linear-gradient(
+        125deg,
+        #104c32,
+        #198754
+    );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 65px solid #ffffff0b;
+    border-radius: 50%;
+    right: -100px;
+    top: -120px;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+.hero .etiqueta {
+    color: #bce9cc;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 22px 0;
+    letter-spacing: -1.5px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 620px;
+    color: #e2f3e8;
+}
+
+.hero .btn {
+    background: var(--naranja);
+    border-color: var(--naranja);
+    color: #18352a;
+}
+
+.hero .btn:hover {
+    background: #ffa84d;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+/* SECCIONES */
+
+.servicios {
+    padding: 40px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.servicios h2 {
+    font-size: 27px;
+    font-weight: 750;
+    margin-bottom: 24px;
+    letter-spacing: -0.6px;
+}
+
+.servicios > p {
+    color: var(--gris);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* TARJETAS */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: var(--blanco);
+    padding: 26px;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px #18352a08;
+    transition: all 0.25s ease;
+}
+
+.tarjeta:hover {
+    border-color: #9ecfb2;
+    box-shadow: 0 8px 25px #18352a12;
+}
+
+.tarjeta h3 {
+    font-size: 19px;
+    color: var(--texto);
+    margin-bottom: 12px;
+}
+
+.tarjeta p {
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.tarjeta .btn {
+    margin-top: 12px;
+}
+
+/* MARKET - BUSCADOR */
+
+#buscador {
+    display: block;
+    width: 100%;
+    padding: 17px 22px;
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 35px;
+    outline: none;
+}
+
+#buscador:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 4px #19875415;
+}
+
+/* MARKET - CATEGORIAS */
+
+#categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+#categorias .btn {
+    background: white;
+    color: var(--verde-oscuro);
+    border: 1px solid var(--borde);
+    padding: 12px 20px;
+    border-radius: 30px;
+}
+
+#categorias .btn:hover,
+#categorias .btn:focus {
+    background: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+/* MARKET - COMERCIOS */
+
+#comercios {
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+    margin-bottom: 45px;
+}
+
+#comercios .tarjeta {
+    border-top: 4px solid var(--verde);
+}
+
+/* MARKET - PRODUCTOS */
+
+#productos {
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+    margin-bottom: 30px;
+}
+
+#productos .tarjeta {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+#productos .tarjeta:hover {
+    transform: translateY(-4px);
+}
+
+#productos .tarjeta h3 {
+    font-size: 18px;
+}
+
+#productos .tarjeta h3:not(:first-child) {
+    font-size: 24px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* FORMULARIOS GENERALES */
+
+form {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto);
+    margin: 15px 0 8px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: #fafcfb;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--texto);
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 4px #19875412;
+    background: white;
+}
+
+textarea {
+    resize: vertical;
+}
+
+form .tarjeta {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+form .tarjeta h3 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--borde);
+    color: var(--verde-oscuro);
+}
+
+form > .btn {
+    margin-top: 15px;
+}
+
+form > p {
+    color: var(--gris);
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* EXPRESS - FORMULARIO */
+
+#formulario-express {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+#formulario-express .tarjeta {
+    margin: 0;
+    padding: 28px;
+}
+
+#formulario-express .tarjeta:nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+#formulario-express > button,
+#formulario-express > p {
+    grid-column: 1 / -1;
+}
+
+#formulario-express > button {
+    justify-self: center;
+    min-width: 240px;
+}
+
+#formulario-express > p {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    background: #104c32;
+    color: #d7eade;
+    padding: 30px 5%;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* TABLETS */
+
+@media (max-width: 1100px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    html {
+        scroll-padding-top: 160px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 18px 4%;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        margin: 15px 4%;
+        padding: 45px 6%;
+        border-radius: 18px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .servicios {
+        padding: 30px 4%;
+    }
+
+    .servicios h2 {
+        font-size: 23px;
+    }
+
+    .tarjetas,
+    #comercios {
+        grid-template-columns: 1fr;
+    }
+
+    #productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #productos .tarjeta {
+        padding: 15px;
+    }
+
+    #formulario-express {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario-express .tarjeta {
+        padding: 20px;
+    }
+
+    .acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
